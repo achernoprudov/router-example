@@ -13,7 +13,18 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-
+  feature_home_api:
+    path: ../features/feature_home/api
+  feature_home_ui:
+    path: ../features/feature_home/ui
+  feature_login_api:
+    path: ../features/feature_login/api
+  feature_login_ui:
+    path: ../features/feature_login/ui
+  feature_splash_api:
+    path: ../features/feature_splash/api
+  feature_splash_ui:
+    path: ../features/feature_splash/ui
 
 dev_dependencies:
   flutter_test:
