@@ -33,6 +33,6 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _openLoginScreen() {
-    context.openPage(loginNavigationPath);
+    context.replacePage(loginNavigationPath);
   }
 }
