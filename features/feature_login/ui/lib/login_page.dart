@@ -1,3 +1,5 @@
+import 'package:core_navigation_ui/navigator.dart';
+import 'package:feature_home_api/home_nav.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -12,7 +14,7 @@ class LoginPage extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () {
-                // do navigation to home
+                context.openPage(homeNavigationPath);
               },
               child: Text("Do login"),
             ),

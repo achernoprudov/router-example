@@ -25,7 +25,8 @@ dependencies:
     path: ../features/feature_splash/api
   feature_splash_ui:
     path: ../features/feature_splash/ui
-
+  core_navigation_ui:
+    path: ../core/navigation/ui
   go_router: 13.0.1
 
 dev_dependencies:

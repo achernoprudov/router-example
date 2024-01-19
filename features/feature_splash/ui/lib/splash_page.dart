@@ -1,3 +1,5 @@
+import 'package:core_navigation_ui/navigator.dart';
+import 'package:feature_login_api/login_nav.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -31,6 +33,6 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _openLoginScreen() {
-    // later
+    context.openPage(loginNavigationPath);
   }
 }

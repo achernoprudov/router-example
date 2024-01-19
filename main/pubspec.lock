@@ -49,7 +49,7 @@ packages:
     source: path
     version: "1.0.0+1"
   core_navigation_ui:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../core/navigation/ui"
       relative: true
