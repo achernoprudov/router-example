@@ -8,15 +8,29 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   @override
   void initState() {
-    // TODO: implement initState
+    Future.delayed(Duration(seconds: 5)).then((value) => _openLoginScreen());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text('SplashPage')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text('Splash data loading'),
+          CircularProgressIndicator(),
+        ],
+      ),
+    );
+  }
+
+  void _openLoginScreen() {
+    // later
   }
 }
