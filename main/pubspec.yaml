@@ -26,6 +26,8 @@ dependencies:
   feature_splash_ui:
     path: ../features/feature_splash/ui
 
+  go_router: 13.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

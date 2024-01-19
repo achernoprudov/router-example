@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  core_navigation_ui:
+    path: ../../../core/navigation/ui
 
 dev_dependencies:
   flutter_test:

@@ -1,0 +1,32 @@
+import 'package:feature_home_api/home_nav.dart';
+import 'package:feature_home_ui/home_page.dart';
+import 'package:feature_login_api/login_nav.dart';
+import 'package:feature_login_ui/login_page.dart';
+import 'package:feature_splash_api/splash_nav.dart';
+import 'package:feature_splash_ui/splash_page.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+final GoRouter router = GoRouter(
+  initialLocation: splashNavigationPath,
+  routes: <RouteBase>[
+    GoRoute(
+      path: splashNavigationPath,
+      builder: (BuildContext context, GoRouterState state) {
+        return const SplashPage();
+      },
+    ),
+    GoRoute(
+      path: loginNavigationPath,
+      builder: (context, state) {
+        return const LoginPage();
+      },
+    ),
+    GoRoute(
+      path: homeNavigationPath,
+      builder: (context, state) {
+        return const HomePage();
+      },
+    ),
+  ],
+);
