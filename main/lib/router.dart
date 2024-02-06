@@ -6,6 +6,7 @@ import 'package:feature_splash_api/splash_nav.dart';
 import 'package:feature_splash_ui/splash_page.dart' deferred as splash;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:router_example/lazy_page.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: splashNavigationPath,
@@ -13,8 +14,13 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: splashNavigationPath,
       builder: (BuildContext context, GoRouterState state) {
-        // await splash.loadLibrary();
         return splash.SplashPage();
+        // return LazyPage(
+        //   loader: (context) async {
+        //     await splash.loadLibrary();
+        //     return splash.SplashPage();
+        //   },
+        // );
       },
     ),
     GoRoute(
@@ -31,31 +37,3 @@ final GoRouter router = GoRouter(
     ),
   ],
 );
-
-class LazyPage extends StatefulWidget {
-  const LazyPage({super.key});
-
-  @override
-  State<LazyPage> createState() => _LazyPageState();
-}
-
-class _LazyPageState extends State<LazyPage> {
-  var isLoaded = false;
-
-  // var
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (!isLoaded) {
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    }
-    return Placeholder();
-  }
-}
