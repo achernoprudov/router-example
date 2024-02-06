@@ -13,6 +13,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: splashNavigationPath,
       builder: (BuildContext context, GoRouterState state) {
+        // await splash.loadLibrary();
         return splash.SplashPage();
       },
     ),
@@ -32,7 +33,6 @@ final GoRouter router = GoRouter(
 );
 
 class LazyPage extends StatefulWidget {
-
   const LazyPage({super.key});
 
   @override
@@ -42,11 +42,20 @@ class LazyPage extends StatefulWidget {
 class _LazyPageState extends State<LazyPage> {
   var isLoaded = false;
 
+  // var
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    if (isLoaded) {
-
+    if (!isLoaded) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
     }
-    return const Placeholder();
+    return Placeholder();
   }
 }
