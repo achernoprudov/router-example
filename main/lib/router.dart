@@ -14,25 +14,37 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: splashNavigationPath,
       builder: (BuildContext context, GoRouterState state) {
-        return splash.SplashPage();
-        // return LazyPage(
-        //   loader: (context) async {
-        //     await splash.loadLibrary();
-        //     return splash.SplashPage();
-        //   },
-        // );
+        return LazyPage(
+          key: const ValueKey('splash page'),
+          loader: (context) async {
+            await splash.loadLibrary();
+            return splash.SplashPage();
+          },
+        );
       },
     ),
     GoRoute(
       path: loginNavigationPath,
       builder: (context, state) {
-        return login.LoginPage();
+        return LazyPage(
+          key: const ValueKey('login page'),
+          loader: (context) async {
+            await login.loadLibrary();
+            return login.LoginPage();
+          },
+        );
       },
     ),
     GoRoute(
       path: homeNavigationPath,
       builder: (context, state) {
-        return home.HomePage();
+        return LazyPage(
+          key: const ValueKey('home page'),
+          loader: (context) async {
+            await home.loadLibrary();
+            return home.HomePage();
+          },
+        );
       },
     ),
   ],

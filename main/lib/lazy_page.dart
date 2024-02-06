@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class LazyPage extends StatefulWidget {
   final WidgetLoader loader;
 
-  const LazyPage({super.key, required this.loader});
+  const LazyPage({required super.key, required this.loader});
 
   @override
   State<LazyPage> createState() => _LazyPageState();
