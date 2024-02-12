@@ -1,4 +1,6 @@
+import 'package:core_navigation_ui/index.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:router_example/router.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
@@ -15,6 +17,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: router,
+      builder: (context, child) {
+        return InheritedRouterConfiguration(
+          configuration: NewRouterConfiguration(
+            pushCallback: (context, config) {
+              context.push(config.path);
+            },
+          ),
+          child: child ?? const Placeholder(),
+        );
+      },
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
