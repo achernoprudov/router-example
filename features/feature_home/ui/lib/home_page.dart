@@ -1,4 +1,4 @@
-import 'package:core_navigation_ui/navigator.dart';
+import 'package:core_navigation_ui/index.dart';
 import 'package:feature_login_api/login_nav.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () {
-                context.openPage(loginNavigationPath);
+                context.router.push(LoginNavigationConfig());
               },
               child: Text("Logout"),
             ),

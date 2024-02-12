@@ -1,4 +1,4 @@
-import 'package:core_navigation_ui/navigator.dart';
+import 'package:core_navigation_ui/index.dart';
 import 'package:feature_login_api/login_nav.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +33,6 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _openLoginScreen() {
-    context.replacePage(loginNavigationPath);
+    context.router.push(LoginNavigationConfig());
   }
 }

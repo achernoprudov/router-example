@@ -11,6 +11,16 @@ import 'package:router_example/lazy_page.dart';
 final GoRouter router = GoRouter(
   initialLocation: splashNavigationPath,
   routes: <RouteBase>[
+    ..._splashRoutes(),
+    ..._loginRoutes(),
+    ..._homeRoutes(),
+  ],
+);
+
+/// ↓ ↓ ↓ Can be located in Dart part file ↓ ↓ ↓
+
+Iterable<GoRoute> _splashRoutes() {
+  return [
     GoRoute(
       path: splashNavigationPath,
       builder: (BuildContext context, GoRouterState state) {
@@ -22,7 +32,12 @@ final GoRouter router = GoRouter(
           },
         );
       },
-    ),
+    )
+  ];
+}
+
+Iterable<GoRoute> _loginRoutes() {
+  return [
     GoRoute(
       path: loginNavigationPath,
       builder: (context, state) {
@@ -34,18 +49,35 @@ final GoRouter router = GoRouter(
           },
         );
       },
-    ),
+    )
+  ];
+}
+
+Iterable<GoRoute> _homeRoutes() {
+  return [
     GoRoute(
-      path: homeNavigationPath,
-      builder: (context, state) {
-        return LazyPage(
-          key: const ValueKey('home page'),
-          loader: (context) async {
-            await home.loadLibrary();
-            return home.HomePage();
-          },
-        );
-      },
-    ),
-  ],
-);
+        path: homeNavigationPath,
+        builder: (context, state) {
+          return LazyPage(
+            key: const ValueKey('home page'),
+            loader: (context) async {
+              await home.loadLibrary();
+              return home.HomePage();
+            },
+          );
+        },
+        // home/accounts
+        // home -> home/accounts
+        routes: [
+          GoRoute(path: 'accounts', builder: (context, state) {
+            return LazyPage(
+              key: const ValueKey('home page'),
+              loader: (context) async {
+                await home.loadLibrary();
+                return home.HomePage();
+              },
+            );
+          },),
+        ])
+  ];
+}
