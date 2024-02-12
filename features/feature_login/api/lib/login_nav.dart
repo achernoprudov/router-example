@@ -1,8 +1,9 @@
 import 'package:core_navigation_api/nav_config.dart';
 
-const loginNavigationPath = '/login';
-
 class LoginNavigationConfig implements NavConfig {
+  static final configName = 'login';
+  static final configPath = '/$configName';
+
   @override
-  String get path => loginNavigationPath;
+  String get path => configPath;
 }

@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:router_example/lazy_page.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: splashNavigationPath,
+  initialLocation: SplashNavigationConfig.configPath,
   routes: <RouteBase>[
     ..._splashRoutes(),
     ..._loginRoutes(),
@@ -22,7 +22,8 @@ final GoRouter router = GoRouter(
 Iterable<GoRoute> _splashRoutes() {
   return [
     GoRoute(
-      path: splashNavigationPath,
+      name: SplashNavigationConfig.configName,
+      path: SplashNavigationConfig.configPath,
       builder: (BuildContext context, GoRouterState state) {
         return LazyPage(
           key: const ValueKey('splash page'),
@@ -39,7 +40,8 @@ Iterable<GoRoute> _splashRoutes() {
 Iterable<GoRoute> _loginRoutes() {
   return [
     GoRoute(
-      path: loginNavigationPath,
+      name: LoginNavigationConfig.configName,
+      path: LoginNavigationConfig.configPath,
       builder: (context, state) {
         return LazyPage(
           key: const ValueKey('login page'),
@@ -56,20 +58,23 @@ Iterable<GoRoute> _loginRoutes() {
 Iterable<GoRoute> _homeRoutes() {
   return [
     GoRoute(
-        path: homeNavigationPath,
-        builder: (context, state) {
-          return LazyPage(
-            key: const ValueKey('home page'),
-            loader: (context) async {
-              await home.loadLibrary();
-              return home.HomePage();
-            },
-          );
-        },
-        // home/accounts
-        // home -> home/accounts
-        routes: [
-          GoRoute(path: 'accounts', builder: (context, state) {
+      name: HomeNavigationConfig.configName,
+      path: HomeNavigationConfig.configPath,
+      builder: (context, state) {
+        return LazyPage(
+          key: const ValueKey('home page'),
+          loader: (context) async {
+            await home.loadLibrary();
+            return home.HomePage();
+          },
+        );
+      },
+      // home/accounts
+      // home -> home/accounts
+      routes: [
+        GoRoute(
+          path: 'accounts',
+          builder: (context, state) {
             return LazyPage(
               key: const ValueKey('home page'),
               loader: (context) async {
@@ -77,7 +82,9 @@ Iterable<GoRoute> _homeRoutes() {
                 return home.HomePage();
               },
             );
-          },),
-        ])
+          },
+        ),
+      ],
+    )
   ];
 }
