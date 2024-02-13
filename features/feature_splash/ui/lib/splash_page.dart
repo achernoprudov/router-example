@@ -33,6 +33,6 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _openLoginScreen() {
-    context.router.go(LoginNavigationConfig());
+    context.router.replace(LoginNavigationConfig());
   }
 }

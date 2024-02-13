@@ -1,5 +1,5 @@
 import 'package:feature_home_api/home_nav.dart';
-import 'package:feature_home_ui/home_page.dart' deferred as home;
+import 'package:feature_home_ui/index.dart' deferred as home;
 import 'package:feature_login_api/login_nav.dart';
 import 'package:feature_login_ui/login_page.dart' deferred as login;
 import 'package:feature_splash_api/splash_nav.dart';
@@ -7,6 +7,7 @@ import 'package:feature_splash_ui/splash_page.dart' deferred as splash;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:router_example/lazy_page.dart';
+import 'package:router_example/lazy_route.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: SplashNavigationConfig.configPath,
@@ -57,34 +58,20 @@ Iterable<GoRoute> _loginRoutes() {
 
 Iterable<GoRoute> _homeRoutes() {
   return [
-    GoRoute(
-      name: HomeNavigationConfig.configName,
-      path: HomeNavigationConfig.configPath,
-      builder: (context, state) {
-        return LazyPage(
-          key: const ValueKey('home page'),
-          loader: (context) async {
-            await home.loadLibrary();
-            return home.HomePage();
-          },
-        );
-      },
-      // home/accounts
-      // home -> home/accounts
-      routes: [
-        GoRoute(
-          path: 'accounts',
-          builder: (context, state) {
-            return LazyPage(
-              key: const ValueKey('home page'),
-              loader: (context) async {
-                await home.loadLibrary();
-                return home.HomePage();
-              },
-            );
-          },
-        ),
-      ],
-    )
+    LazyRoutes.buildLazyRoute(
+        path: HomeNavigationConfig.configPath,
+        loader: (context, state) async {
+          await home.loadLibrary();
+          return home.HomePage();
+        },
+        routes: [
+          LazyRoutes.buildLazyRoute(
+            path: 'accounts',
+            loader: (context, state) async {
+              await home.loadLibrary();
+              return home.AccountsPage();
+            },
+          ),
+        ]),
   ];
 }
