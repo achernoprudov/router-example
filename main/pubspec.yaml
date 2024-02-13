@@ -30,6 +30,8 @@ dependencies:
     path: ../features/feature_splash/api
   feature_splash_ui:
     path: ../features/feature_splash/ui
+  core_navigation_api:
+    path: ../core/navigation/api
   core_navigation_ui:
     path: ../core/navigation/ui
 

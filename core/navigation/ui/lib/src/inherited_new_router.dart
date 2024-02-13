@@ -9,13 +9,13 @@ class InheritedRouterConfiguration extends InheritedWidget {
     super.key,
   });
 
-  final NewRouterConfiguration configuration;
+  final RouterConfiguration configuration;
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(
-      DiagnosticsProperty<NewRouterConfiguration>('config', configuration),
+      DiagnosticsProperty<RouterConfiguration>('config', configuration),
     );
   }
 

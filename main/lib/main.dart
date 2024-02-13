@@ -1,6 +1,7 @@
 import 'package:core_navigation_ui/index.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:router_example/go_router_proxy.dart';
 import 'package:router_example/router.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
@@ -19,16 +20,7 @@ class MyApp extends StatelessWidget {
       routerConfig: router,
       builder: (context, child) {
         return InheritedRouterConfiguration(
-          configuration: NewRouterConfiguration(
-            pushCallback: (context, config) {
-              context.push(config.path);
-
-              context.pushReplacement(location)
-            },
-            goCallback: (context, config) {
-              context.go(config.path, extra: config);
-            },
-          ),
+          configuration: GoRouterConfigurationProxy(),
           child: child ?? const Placeholder(),
         );
       },

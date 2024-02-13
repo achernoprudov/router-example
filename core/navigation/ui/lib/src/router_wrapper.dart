@@ -3,7 +3,7 @@ import 'package:core_navigation_ui/src/new_router.dart';
 import 'package:flutter/cupertino.dart';
 
 class NewRouterProxy implements NewRouter {
-  final NewRouterConfiguration routerConfiguration;
+  final RouterConfiguration routerConfiguration;
   final BuildContext context;
 
   NewRouterProxy({
@@ -12,12 +12,27 @@ class NewRouterProxy implements NewRouter {
   });
 
   @override
-  void push(NavConfig config) {
-    routerConfiguration.pushCallback(context, config);
+  void go(NavConfig config) {
+    routerConfiguration.go(context, config);
   }
 
   @override
-  void go(NavConfig config) {
-    routerConfiguration.goCallback(context, config);
+  void pop<T extends Object?>([T? result]) {
+    routerConfiguration.pop(context, result);
+  }
+
+  @override
+  Future<T?> push<T extends Object?>(NavConfig config) {
+    return routerConfiguration.push(context, config);
+  }
+
+  @override
+  void pushReplacement(NavConfig config) {
+    routerConfiguration.pushReplacement(context, config);
+  }
+
+  @override
+  void replace(NavConfig config) {
+    routerConfiguration.replace(context, config);
   }
 }
