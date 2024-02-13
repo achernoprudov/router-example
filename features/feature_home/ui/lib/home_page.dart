@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () {
-                context.router.push(LoginNavigationConfig());
+                context.router.go(LoginNavigationConfig());
               },
               child: Text("Logout"),
             ),

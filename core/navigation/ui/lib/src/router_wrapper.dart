@@ -15,4 +15,9 @@ class NewRouterProxy implements NewRouter {
   void push(NavConfig config) {
     routerConfiguration.pushCallback(context, config);
   }
+
+  @override
+  void go(NavConfig config) {
+    routerConfiguration.goCallback(context, config);
+  }
 }

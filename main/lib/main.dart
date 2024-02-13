@@ -21,7 +21,12 @@ class MyApp extends StatelessWidget {
         return InheritedRouterConfiguration(
           configuration: NewRouterConfiguration(
             pushCallback: (context, config) {
-              context.go(config.path);
+              context.push(config.path);
+
+              context.pushReplacement(location)
+            },
+            goCallback: (context, config) {
+              context.go(config.path, extra: config);
             },
           ),
           child: child ?? const Placeholder(),

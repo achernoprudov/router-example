@@ -5,5 +5,8 @@ class LoginNavigationConfig implements NavConfig {
   static final configPath = '/$configName';
 
   @override
+  String get name => configName;
+
+  @override
   String get path => configPath;
 }
