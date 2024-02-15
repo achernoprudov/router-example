@@ -40,38 +40,33 @@ Iterable<GoRoute> _splashRoutes() {
 
 Iterable<GoRoute> _loginRoutes() {
   return [
-    GoRoute(
-      name: LoginNavigationConfig.configName,
+    LazyRoutes.buildLazyRoute(
       path: LoginNavigationConfig.configPath,
-      builder: (context, state) {
-        return LazyPage(
-          key: const ValueKey('login page'),
-          loader: (context) async {
-            await login.loadLibrary();
-            return login.LoginPage();
-          },
-        );
+      loader: (context, state) async {
+        await login.loadLibrary();
+        return login.LoginPage();
       },
-    )
+    ),
   ];
 }
 
 Iterable<GoRoute> _homeRoutes() {
   return [
     LazyRoutes.buildLazyRoute(
-        path: HomeNavigationConfig.configPath,
-        loader: (context, state) async {
-          await home.loadLibrary();
-          return home.HomePage();
-        },
-        routes: [
-          LazyRoutes.buildLazyRoute(
-            path: 'accounts',
-            loader: (context, state) async {
-              await home.loadLibrary();
-              return home.AccountsPage();
-            },
-          ),
-        ]),
+      path: HomeNavigationConfig.configPath,
+      loader: (context, state) async {
+        await home.loadLibrary();
+        return home.HomePage();
+      },
+      routes: [
+        LazyRoutes.buildLazyRoute(
+          path: 'accounts',
+          loader: (context, state) async {
+            await home.loadLibrary();
+            return home.AccountsPage();
+          },
+        ),
+      ],
+    ),
   ];
 }
