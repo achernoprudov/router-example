@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:router_example/lazy_page.dart';
+import 'package:router_example/src/widget/lazy_page.dart';
 
 typedef RouteWidgetLoader = Future<Widget> Function(
   BuildContext context,

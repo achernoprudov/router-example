@@ -6,8 +6,8 @@ import 'package:feature_splash_api/splash_nav.dart';
 import 'package:feature_splash_ui/splash_page.dart' deferred as splash;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:router_example/lazy_page.dart';
-import 'package:router_example/lazy_route.dart';
+import 'package:router_example/src/widget/lazy_page.dart';
+import 'package:router_example/src/go/lazy_route.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: SplashNavigationConfig.configPath,
@@ -23,7 +23,6 @@ final GoRouter router = GoRouter(
 Iterable<GoRoute> _splashRoutes() {
   return [
     GoRoute(
-      name: SplashNavigationConfig.configName,
       path: SplashNavigationConfig.configPath,
       builder: (BuildContext context, GoRouterState state) {
         return LazyPage(
