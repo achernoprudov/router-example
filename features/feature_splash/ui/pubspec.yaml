@@ -16,6 +16,8 @@ dependencies:
     path: ../../../core/navigation/api
   core_navigation_ui:
     path: ../../../core/navigation/ui
+  feature_splash_api:
+    path: ../../feature_splash/api
   feature_login_api:
     path: ../../feature_login/api
 

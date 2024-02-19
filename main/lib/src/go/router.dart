@@ -1,9 +1,9 @@
 import 'package:feature_home_api/home_nav.dart';
 import 'package:feature_home_ui/index.dart' deferred as home;
 import 'package:feature_login_api/login_nav.dart';
-import 'package:feature_login_ui/login_page.dart' deferred as login;
+import 'package:feature_login_ui/index.dart' deferred as login;
 import 'package:feature_splash_api/splash_nav.dart';
-import 'package:feature_splash_ui/splash_page.dart' deferred as splash;
+import 'package:feature_splash_ui/index.dart' deferred as splash;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:router_example/src/widget/lazy_page.dart';
